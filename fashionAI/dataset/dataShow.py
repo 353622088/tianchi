@@ -7,7 +7,7 @@ created on 2019/1/29
 import csv
 import scipy.io as scio
 
-with open("train2_label.csv") as train_csv:
+with open("train1_label.csv") as train_csv:
     csv_reader_lines = csv.reader(train_csv)
     img_types = []
     img_labels = dict()
@@ -36,7 +36,8 @@ design_subclass_dict = {
                                # "Sweat Heart Neck": 1634, "One	Shoulder Neckline": 1301
                                },
 
-    "lapel_design_labels": {"index2label": ["Invisible", "Notched", "Collarless",
+    ""
+    "": {"index2label": ["Invisible", "Notched", "Collarless",
                                             "Shawl", "Plus_Size_Shawl"],
                             # "Invisible": 1174, "Notched": 1525,
                             # "Collarless": 1887, "Shawl": 940,
@@ -90,7 +91,6 @@ for key in img_labels.keys():
                 subclass.update({sub_key: 0})
             if label[i] == "y":
                 subclass[sub_key] += 1
-scio.savemat("design_train2.mat", design_subclass_dict)
-scio.savemat("length_train2.mat", length_subclass_dict)
+
 print(design_subclass_dict)
 print(length_subclass_dict)
